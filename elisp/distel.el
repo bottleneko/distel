@@ -14,12 +14,12 @@
 ;; Compile erlang source files when installed as emacs package
 
 (eval-when-compile
-  (let ((fname (locate-file "distel.el" load-path)))
-    (if fname
-        (let ((dir (file-name-directory (directory-file-name (file-name-directory fname)))))
-          (if (= 0 (call-process "make" nil nil nil "-C" dir "erl"))
-              (message "distel - Compiled erl files.")
-            (message "distel - Compiling erl file failed; %s" dir))))))
+  (let ((dir (locate-file "erl.el" load-path)))
+    (if dir
+        (progn
+          (let ((default-directory (file-name-directory dir)))
+            (require 'compile)
+            (compile "pwd && make -C.. all"))))))
 
 ;; Customization
 

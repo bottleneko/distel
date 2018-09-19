@@ -22,7 +22,7 @@ ERL_OBJ := $(patsubst src/%.erl,ebin/%.beam,${ERL_SRC})
 ELISP_SRC := $(wildcard elisp/*.el)
 ELISP_OBJ := $(patsubst %.el,%.elc,${ELISP_SRC})
 
-ELISP_SOME_SRC := $(filter-out elisp/distel%.el elisp/edb.el elisp/erl-service.el,${ELISP_SRC})
+ELISP_SOME_SRC := $(filter-out elisp/distel%.el,${ELISP_SRC})
 ELISP_SOME_OBJ := $(patsubst %.el,%.elc,${ELISP_SOME_SRC})
 
 DOC_SRC  := doc/distel.texi
