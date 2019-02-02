@@ -81,7 +81,10 @@ assert(Props) ->
 
 %% --------------------------------------------------------------------------
 %% implementation - runs in the server
--record(state,{root_dir,prot=file,delim=delim()}).
+-record(state, {root_dir           :: any(),
+                prot     = file    :: atom(),
+                delim    = delim() :: string()
+               }).
 
 %% gen_server callbacks
 init(Props) ->

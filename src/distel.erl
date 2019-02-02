@@ -571,11 +571,11 @@ debug_attach(Emacs, Pid) ->
     spawn_link(?MODULE, attach_init, [Emacs, Pid]).
 
 %% State for attached process, based on `dbg_ui_trace' in the debugger.
--record(attach, {emacs,                 % pid()
-                 meta,                  % pid()
-                 status,                % break | running | idle | ...
-                 where,                 % {Mod, Line}
-                 stack                  % {CurPos, MaxPos}
+-record(attach, {emacs  :: pid(),
+                 meta   :: pid(),
+                 status :: break | runnung | idle | exit,
+                 where  :: {Module :: atom(), Line :: non_neg_integer()},
+                 stack  :: {CurPos :: non_neg_integer(), MaxPos :: non_neg_ineger}
                 }).
 
 attach_init(Emacs, Pid) ->
