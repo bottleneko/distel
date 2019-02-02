@@ -90,3 +90,7 @@
   (when current-prefix-arg
     (setq erl-interactive-remaining-cases erl-interactive-test-cases))
   (funcall (pop erl-interactive-remaining-cases) node))
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:

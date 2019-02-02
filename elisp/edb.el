@@ -867,3 +867,7 @@ breakpoints are already marked as stale."
         when (funcall pred x) return x))
 
 (provide 'edb)
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:

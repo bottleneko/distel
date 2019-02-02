@@ -231,3 +231,7 @@ for debugging a file without ruining the content by mistake."
     ("\C-\M-x" . erl-ie-eval-defun)))
 
 (provide 'distel-ie)
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:

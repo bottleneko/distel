@@ -314,3 +314,7 @@ Please see the documentation of `erlang-menu-base-items'.")
     (indent-rigidly pos (point) level)))
 
 (provide 'distel)
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars unresolved)
+;; End:

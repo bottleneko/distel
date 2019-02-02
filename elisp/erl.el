@@ -648,4 +648,7 @@ during the next `erl-schedule'."
           (&erl-group-leader-loop))))
 
 (provide 'erl)
-;;; erl.el ends here
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:

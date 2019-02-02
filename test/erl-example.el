@@ -56,3 +56,7 @@ check for them there!"
     ;; its registered name - it's buffer is "*reg counter*", and you
     ;; can safely C-x k it.
     ))
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:

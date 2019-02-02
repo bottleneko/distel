@@ -586,3 +586,7 @@ it and making sure that it's unchanged."
     (error (error "test failed for %S: %S" term (error-message-string x)))))
 
 (provide 'erlext)
+
+;; Local Variables:
+;; byte-compile-warnings: (not obsolete)
+;; End:
