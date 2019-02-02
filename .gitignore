@@ -4,3 +4,4 @@
 ebin
 elisp/*.elc
 rebar.lock
+_build

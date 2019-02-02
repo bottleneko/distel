@@ -1,0 +1,9 @@
+{application, distel,
+ [{description, "Distributed Emacs Lisp for Erlang"},
+  {vsn, git},
+  {registered, []},
+  {applications, 
+   [kernel,
+    stdlib
+   ]}
+ ]}.
