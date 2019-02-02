@@ -1,5 +1,6 @@
 distel -- Distributed Emacs Lisp for Erlang.
 ------------------------------------------------------------
+[![Build Status](https://travis-ci.org/bottleneko/distel.svg?branch=master)](https://travis-ci.org/bottleneko/distel)
 
 Distel is a library for Emacs<->Erlang communication, plus a suite of
 tools built on top of it, such as a debugger front-end. It works by

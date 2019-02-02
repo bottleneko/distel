@@ -1,3 +1,4 @@
+SHELL   := /bin/bash
 PACKAGE := distel
 VERSION := $(shell git describe --tags 2> /dev/null)
 
@@ -25,6 +26,8 @@ ELISP_OBJ := $(patsubst %.el,%.elc,${ELISP_SRC})
 ELISP_SOME_SRC := $(filter-out elisp/distel%.el,${ELISP_SRC})
 ELISP_SOME_OBJ := $(patsubst %.el,%.elc,${ELISP_SOME_SRC})
 
+ERLANG_EMACS_PATH := $(wildcard $(patsubst %/bin/erl,%/lib/tools-*/emacs, $(shell echo $(shell type erl) | awk '{print $$3}')))
+
 DOC_SRC  := doc/distel.texi
 INFO_OBJ := doc/distel.info
 PS_OBJ   := doc/distel.ps
@@ -49,7 +52,7 @@ ebin/%.beam: src/%.erl
 
 ## Elisp
 elisp/%.elc: elisp/%.el
-	${emacs} -batch -L elisp -f batch-byte-compile $<
+	${emacs} -batch -L elisp -L ${ERLANG_EMACS_PATH} -f batch-byte-compile $<
 
 ## Info documentation
 doc/distel.info: ${DOC_SRC}
