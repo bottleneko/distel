@@ -73,6 +73,13 @@ Use \\[erl-choose-nodename] to set or change default node name."
 
 ;;;;; Call MFA lookup
 
+(defmacro erl-propertize-insert (props &rest body)
+  "Execute and insert BODY and add PROPS to all the text that is inserted."
+  (let ((start (make-symbol "start")))
+    `(let ((,start (point)))
+       (prog1 (progn (insert ,@body))
+         (add-text-properties ,start (point) ,props)))))
+
 (defun erl-read-call-mfa ()
   "Read module, function, arity at point or from user.
 Returns the result in a list: module and function as strings, arity as
@@ -1303,13 +1310,6 @@ The match positions are erl-mfa-regexp-{module,function,arity}-match.")
     (goto-char (point-min))
     (and (plusp line)
          (forward-line (1- line)))))
-
-(defmacro erl-propertize-insert (props &rest body)
-  "Execute and insert BODY and add PROPS to all the text that is inserted."
-  (let ((start (make-symbol "start")))
-    `(let ((,start (point)))
-       (prog1 (progn (insert ,@body))
-         (add-text-properties ,start (point) ,props)))))
 
 (provide 'erl-service)
 
