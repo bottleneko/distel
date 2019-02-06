@@ -287,12 +287,13 @@ On an error, Result will be [badrpc Reason]."
           (if (symbolp response)
               (let* ((nodeQ (symbol-name node))
                      (nodeA (symbol-name response))
-                     (nodeMac (concat nodeA ".local")))
+                     (nodeMac (concat nodeA ".local"))
+		     (nodeHostName (system-name)))
                 (if (or (equal nodeQ nodeA)
-                        (equal nodeQ nodeMac))
+                        (equal nodeQ nodeMac)
+			(cl-search nodeHostName nodeMac))
                     (message "distel - communicated with %s" nodeA)
-                  (message "distel - failed to communicate with %s: %s"
-                           nodeQ nodeA)))))))))
+		  (message "distel - failed to communicate, with %s: %s" nodeQ nodeA)))))))))
 
 ;;;; Process list
 
